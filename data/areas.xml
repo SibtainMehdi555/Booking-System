@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<areas>
+    <area id="1" name="Downtown" description="Central business district" cost="1000" capacity="50" image="downtown.jpg" booked="false"/>
+    <area id="2" name="Westside" description="Residential area with parks" cost="800" capacity="30" image="westside.jpg" booked="true"/>
+    <area id="3" name="Eastside" description="Industrial and commercial zone" cost="1200" capacity="75" image="eastside.jpg" booked="false"/>
+</areas> 

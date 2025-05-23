@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<areas>
+    <area id="A1" name="Wave Pool" capacity="50" cost_per_day="200" booked="false" image_path="/static/images/wave_pool.jpg">
+        <description>Large wave pool with artificial waves</description>
+    </area>
+    <area id="A2" name="Lazy River" capacity="20" cost_per_day="150" booked="true" image_path="/static/images/lazy_river.jpg">
+        <description>Relaxing river ride with gentle currents</description>
+    </area>
+    <area id="A3" name="Water Slides" capacity="10" cost_per_day="180" booked="false" image_path="/static/images/slides.jpg">
+        <description>Multiple thrilling water slides</description>
+    </area>
+    <area id="A4" name="Kids Pool" capacity="5" cost_per_day="100" booked="false" image_path="/static/images/kids_pool.jpg">
+        <description>Safe shallow pool for children</description>
+    </area>
+    <area id="A5" name="Adventure River" capacity="20" cost_per_day="170" booked="true" image_path="/static/images/adventure_river.jpg">
+        <description>Exciting river with rapids and waterfalls</description>
+    </area>
+    <area id="A6" name="Spa Area" capacity="5" cost_per_day="250" booked="false" image_path="/static/images/spa.jpg">
+        <description>Luxury spa with hot tubs</description>
+    </area>
+    <area id="A7" name="Water Playground" capacity="10" cost_per_day="120" booked="false" image_path="/static/images/playground.jpg">
+        <description>Interactive water play structures</description>
+    </area>
+    <area id="A8" name="Surf Pool" capacity="5" cost_per_day="300" booked="true" image_path="/static/images/surf_pool.jpg">
+        <description>Artificial wave surfing pool</description>
+    </area>
+    <area id="A9" name="Family Pool" capacity="20" cost_per_day="160" booked="false" image_path="/static/images/family_pool.jpg">
+        <description>Large pool for family activities</description>
+    </area>
+    <area id="A10" name="VIP Lounge" capacity="5" cost_per_day="400" booked="false" image_path="/static/images/vip_lounge.jpg">
+        <description>Exclusive area with premium amenities</description>
+    </area>
+</areas> 
