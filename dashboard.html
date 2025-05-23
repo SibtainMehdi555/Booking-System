@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .dashboard-container {
+            margin-top: 30px;
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .sidebar {
+            background-color: #e9ecef;
+            padding: 20px;
+            min-height: 80vh; /* Adjust as needed */
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background-color: #dee2e6;
+        }
+        .content-area {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar - Basic structure based on image -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <h4 class="mb-4">Parakai Springs</h4> {# Placeholder based on image #}
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('services') }}">Services</a> {# Placeholder #}
+                <a href="{{ url_for('clients') }}">Clients</a> {# Placeholder #}
+                <a href="{{ url_for('employees') }}">Employees</a> {# Placeholder #}
+                <a href="{{ url_for('schedule') }}">Schedule</a> {# Placeholder #}
+                <a href="{{ url_for('settings') }}">Setting</a> {# Placeholder #}
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-md-9 col-lg-10 content-area">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Hello, {{ user.name }}</h2> {# Display user's name #}
+                    <div>
+                         <a href="{{ url_for('book_area_page') }}" class="btn btn-primary">Book Area</a>
+                         <a href="{{ url_for('view_booking_summary') }}" class="btn btn-secondary">View Booking Summary</a>
+                         <a href="{{ url_for('logout') }}" class="btn btn-danger">Log Out</a>
+                    </div>
+                </div>
+
+                <!-- Placeholder Cards based on image layout -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Bookings</h5>
+                                {# Display booking count or summary here later #}
+                                <p>{{ bookings|length }} Total Bookings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                         <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Appointments</h5>
+                                {# Placeholder #}
+                                <p>16</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                         <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Employees</h5>
+                                {# Placeholder #}
+                                <p>09</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                         <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Clients</h5>
+                                {# Placeholder #}
+                                <p>26</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- More detailed sections placeholder -->
+                 <div class="row mt-4">
+                    <div class="col-md-12">
+                         <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Booking Details</h5>
+                                {# You can list recent bookings here #}
+                                <table class="table">
+                                     <thead>
+                                        <tr>
+                                            <th>Area Name</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>People</th>
+                                            <th>Total Cost</th>
+                                            <th>Status</th>
+                                        </tr>
+                                     </thead>
+                                     <tbody>
+                                        {% for booking in bookings %}
+                                        <tr>
+                                            <td>{{ booking.area_name }}</td>
+                                            <td>{{ booking.start_date }}</td>
+                                            <td>{{ booking.end_date }}</td>
+                                            <td>{{ booking.people }}</td>
+                                            <td>{{ "%.2f"|format(booking.total_cost) }}</td>
+                                            <td>{{ booking.status }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        {% if not bookings %}
+                                        <tr>
+                                            <td colspan="6">No bookings found.</td>
+                                        </tr>
+                                        {% endif %}
+                                     </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                 {# Placeholders for charts/graphs based on image #}
+                 <div class="row mt-4">
+                     <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Segmentation</h5>
+                                {# Chart Placeholder #}
+                                <p>Segmentation Chart here</p>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Geographic Distribution</h5>
+                                {# Map Placeholder #}
+                                <p>Map here</p>
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+
+                 <div class="row mt-4">
+                      <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Customer Growth Rate</h5>
+                                {# Chart Placeholder #}
+                                <p>Growth Rate Chart here</p>
+                            </div>
+                        </div>
+                     </div>
+                      <div class="col-md-6">
+                         <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Services-wise Bookings</h5>
+                                {# Chart Placeholder #}
+                                <p>Services Chart here</p>
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
