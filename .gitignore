@@ -87,4 +87,5 @@ var/
 wheels/
 *.egg-info/
 .installed.cfg
-*.egg 
+*.egg  
+/utils
