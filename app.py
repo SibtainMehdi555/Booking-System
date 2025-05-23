@@ -120,7 +120,7 @@ def load_user(user_id):
 
 def get_areas():
     try:
-        areas = Area.query.all()
+        areas = db.session.query(Area).all()
         return [{
             'id': area.id,
             'name': area.name,
@@ -296,8 +296,8 @@ def book_area():
         check_out_str = data.get('check_out')
         group_size = int(data.get('group_size'))
         
-        # Get area from database
-        area = Area.query.get(area_id)
+        # Get area from database using new style query
+        area = db.session.get(Area, area_id)
         if not area:
             return jsonify({'error': 'Area not found'}), 404
         
@@ -366,7 +366,7 @@ def book_area():
 @app.route('/api/my_bookings')
 @login_required
 def api_my_bookings():
-    bookings = Booking.query.filter_by(user_id=current_user.id).order_by(Booking.created_at.desc()).all()
+    bookings = db.session.query(Booking).filter_by(user_id=current_user.id).order_by(Booking.created_at.desc()).all()
     return jsonify([booking.to_dict() for booking in bookings])
 
 # --- NEW SIDEBAR ROUTES ---
@@ -520,8 +520,8 @@ def migrate_areas_from_xml():
         root = tree.getroot()
         
         for area in root.findall('area'):
-            # Check if area already exists
-            existing_area = Area.query.get(area.get('id'))
+            # Check if area already exists using new style query
+            existing_area = db.session.get(Area, area.get('id'))
             if not existing_area:
                 new_area = Area(
                     id=area.get('id'),
